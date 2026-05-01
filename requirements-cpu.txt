@@ -1,0 +1,4 @@
+audio-separator[cpu]>=0.28.0
+soundfile>=0.12.1
+numpy>=1.24
+tqdm>=4.66

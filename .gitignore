@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+models/
+output/
+input/*.mp3
+input/*.wav
+input/*.flac
+!input/.gitkeep
+!output/.gitkeep
