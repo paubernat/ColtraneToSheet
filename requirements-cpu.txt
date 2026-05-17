@@ -5,7 +5,9 @@ tqdm>=4.66
 
 # Step 2: Audio -> MIDI
 piano-transcription-inference>=0.0.5
-basic-pitch>=0.4.0
+# basic-pitch is optional (alternative AMT backend). It pins tensorflow<2.15.1
+# which has no Python 3.12 wheels, so install it explicitly only if needed:
+#   pip install basic-pitch  (Python <=3.11 only)
 pretty_midi>=0.2.10
 midi2audio>=0.1.1
 librosa>=0.10.0
