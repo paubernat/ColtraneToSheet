@@ -14,7 +14,7 @@ from audio_separator.separator import Separator
 
 
 MODELS = {
-    "bs_roformer": "model_bs_roformer_ep_368_sdr_12.9628.ckpt",
+    "bs_roformer": "BS-RoFormer-SW-Fixed.ckpt",   
     "htdemucs_6s": "htdemucs_6s.yaml",
 }
 

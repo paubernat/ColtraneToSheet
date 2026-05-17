@@ -45,4 +45,28 @@ Open `notebooks/01_source_separation.ipynb` in Colab, switch runtime to **T4 GPU
    - Run the CLI: `python -m coltrane_to_sheet.separate input/coltrane.mp3 -o output/`
 3. The isolated piano stem lands in `output/`.
 
-Steps 2 and 3 are not implemented yet.
+## Usage — Step 2 (audio → MIDI)
+
+Prereq: install the **FluidSynth binary** (only needed for MIDI playback):
+- Windows: `winget install --id FluidSynth.FluidSynth` (or `scoop install fluidsynth`)
+- Colab/Linux: `apt-get install fluidsynth`
+- macOS: `brew install fluidsynth`
+
+Then:
+- CLI: `python -m coltrane_to_sheet.audio_to_midi "output/song_(Piano).wav" -o output/`
+- Or open `notebooks/02_audio_to_midi.ipynb` — auto-picks the latest piano stem from `output/`, transcribes, and plays back the synthesized MIDI alongside the original mix and piano stem so you can A/B/C by ear.
+
+Default model is **ByteDance** piano-transcription (SOTA on solo piano). Toggle with `--model basic_pitch` for a CPU-friendlier alternative.
+
+## Usage — Step 3 (MIDI → sheet music PDF)
+
+Prereq: install **MuseScore** (used by `music21` to render MusicXML → PDF):
+- Windows: `winget install --id MuseScore.MuseScore`
+- Colab/Linux: `apt-get install -y musescore3`
+- macOS: `brew install --cask musescore`
+
+Then:
+- CLI: `python -m coltrane_to_sheet.midi_to_sheet "output/song.bytedance.mid" -o output/`
+- Or open `notebooks/03_midi_to_sheet.ipynb` — auto-picks the latest `.mid` from `output/`, quantizes to 16ths, splits the grand staff at middle C, writes MusicXML + PDF, and previews the PDF inline.
+
+Useful flags: `--tempo 140`, `--time-signature 3/4`, `--no-swing`, `--split-pitch 60`, `--quantum 4` (16ths) or `--quantum 2` (8ths), `--no-pdf` (MusicXML only). If MuseScore is missing the CLI still produces MusicXML and prints install instructions.

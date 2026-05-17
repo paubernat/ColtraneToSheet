@@ -3,3 +3,14 @@ audio-separator[cpu]>=0.28.0 ; platform_system == "Darwin"
 soundfile>=0.12.1
 numpy>=1.24
 tqdm>=4.66
+
+# Step 2: Audio -> MIDI
+piano-transcription-inference>=0.0.5
+basic-pitch>=0.4.0
+pretty_midi>=0.2.10
+midi2audio>=0.1.1
+librosa>=0.10.0
+mido>=1.3.0
+
+# Step 3: MIDI -> Sheet music (PDF/MusicXML)
+music21>=9.1

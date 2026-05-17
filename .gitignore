@@ -9,3 +9,5 @@ input/*.wav
 input/*.flac
 !input/.gitkeep
 !output/.gitkeep
+.claude/
+tools/
